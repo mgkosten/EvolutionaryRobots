@@ -8,7 +8,7 @@ import constants as c
 from simulation import SIMULATION
 
 simulation = SIMULATION()
-# simulation.Run()
+simulation.Run()
 # amplitude_BackLeg = c.amp_BackLeg
 # frequency_BackLeg = c.freq_BackLeg
 # phaseOffset_BackLeg = c.offset_BackLeg
