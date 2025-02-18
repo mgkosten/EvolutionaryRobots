@@ -7,7 +7,8 @@ import random
 import constants as c
 from simulation import SIMULATION
 
-pass
+simulation = SIMULATION()
+# simulation.Run()
 # amplitude_BackLeg = c.amp_BackLeg
 # frequency_BackLeg = c.freq_BackLeg
 # phaseOffset_BackLeg = c.offset_BackLeg
