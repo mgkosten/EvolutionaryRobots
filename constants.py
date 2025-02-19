@@ -6,3 +6,5 @@ offset_BackLeg = numpy.pi/2
 amp_FrontLeg = numpy.pi/4
 freq_FrontLeg = 4
 offset_FrontLeg = 0
+
+loop_iterations = 1000
