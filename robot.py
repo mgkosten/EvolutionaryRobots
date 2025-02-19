@@ -1,6 +1,7 @@
 import pybullet as p
 import pyrosim.pyrosim as pyrosim
 from sensor import SENSOR
+from motor import MOTOR
 class ROBOT:
 
     def __init__(self):
@@ -15,4 +16,9 @@ class ROBOT:
     def Sense(self, t):
         # self.values.append(pyrosim.Get_Touch_Sensor_Value_For_Link(self.sensor.linkName))
         for sensor, instance in self.sensors.items():
-           instance.Get_Value(t) 
+           instance.Get_Value(t)
+
+    def Prepare_To_Act(self):
+        self .joints = {}
+        for jointName in pyrosim.jointNamesToIndices:
+            self.joints[jointName] = MOTOR()
