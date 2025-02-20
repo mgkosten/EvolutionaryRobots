@@ -10,13 +10,17 @@ class MOTOR:
     
     def Prepare_To_Act(self):
         self.amplitude = c.amplitude
-        self.frequency = c.frequency
+        # self.frequency = c.frequency
         self.offset = c.offset
 
         self.motorValues = {}
 
-        # angles = numpy.linspace(0, 2 * numpy.pi, c.loop_iterations)
-        # motorValues = self.amplitude * numpy.sin(self.frequency * angles + self.offset)
+        if self.jointName == b"Torso_BackLeg":
+            self.frequency = c.frequency / 2.0
+            print(f"Joint {self.jointName}: Frequency = {self.frequency}")
+        else:
+            self.frequency = c.frequency
+            print(f"Joint {self.jointName}: Frequency = {self.frequency}")
 
     def Set_Value(self, robot, t):
         angles = numpy.linspace(0, 2 * numpy.pi, c.loop_iterations)
@@ -31,4 +35,5 @@ class MOTOR:
         
     def Save_Values(self, sensor_filename):
         filename = f"data/angles{sensor_filename}.npy"
-        numpy.save(filename, self.motorValues, allow_pickle=False)
+        motor_value_array = numpy.array(list(self.motorValues.values()))
+        numpy.save(filename, motor_value_array, allow_pickle=False)
