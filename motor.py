@@ -9,9 +9,9 @@ class MOTOR:
         self.Prepare_To_Act()
     
     def Prepare_To_Act(self):
-        self.amplitude = c.amp_BackLeg
-        self.frequency = c.freq_BackLeg
-        self.offset = c.offset_BackLeg
+        self.amplitude = c.amplitude
+        self.frequency = c.frequency
+        self.offset = c.offset
 
         self.motorValues = {}
 
@@ -28,3 +28,7 @@ class MOTOR:
                 controlMode = p.POSITION_CONTROL, 
                 targetPosition = self.motorValues[t], 
                 maxForce = 15)
+        
+    def Save_Values(self, sensor_filename):
+        filename = f"data/angles{sensor_filename}.npy"
+        numpy.save(filename, self.motorValues, allow_pickle=False)
