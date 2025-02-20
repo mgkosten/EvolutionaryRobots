@@ -5,6 +5,7 @@ import time
 import constants as c
 from world import WORLD
 from robot import ROBOT
+from motor import MOTOR
 
 class SIMULATION:
 
@@ -23,6 +24,7 @@ class SIMULATION:
         for i in range(c.loop_iterations):
             p.stepSimulation()
             self.robot.Sense(i)
+            self.robot.Act
             # backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
             # frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
         

@@ -19,6 +19,10 @@ class ROBOT:
            instance.Get_Value(t)
 
     def Prepare_To_Act(self):
-        self .joints = {}
+        self.joints = {}
         for jointName in pyrosim.jointNamesToIndices:
             self.joints[jointName] = MOTOR()
+    
+    def Act(self):
+        for joint, instance in self.joints.items():
+            instance.Set_Value()
