@@ -22,15 +22,15 @@ class MOTOR:
             self.frequency = c.frequency
             print(f"Joint {self.jointName}: Frequency = {self.frequency}")
 
-    def Set_Value(self, robot, t):
+    def Set_Value(self, robot, desiredAngle):
         angles = numpy.linspace(0, 2 * numpy.pi, c.loop_iterations)
-        motorValue = self.amplitude * numpy.sin(self.frequency * angles[t] + self.offset)
-        self.motorValues[t] = motorValue
+        motorValue = self.amplitude * numpy.sin(self.frequency * desiredAngle + self.offset)
+        desiredAngle = motorValue
         pyrosim.Set_Motor_For_Joint(
                 bodyIndex = robot.robotId, 
                 jointName = self.jointName, 
                 controlMode = p.POSITION_CONTROL, 
-                targetPosition = self.motorValues[t], 
+                targetPosition = desiredAngle, 
                 maxForce = 15)
         
     def Save_Values(self, sensor_filename):

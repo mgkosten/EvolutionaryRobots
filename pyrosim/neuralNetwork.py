@@ -106,3 +106,18 @@ class NEURAL_NETWORK:
                 self.neurons[neuronName].Print()
 
         print("")
+
+    def Get_Neuron_Names(self):
+        return (self.neurons.keys())
+    
+    def Is_Motor_Neuron(self, neuronName):
+        if neuronName in self.neurons:
+           return self.neurons[neuronName].Is_Motor_Neuron()
+        
+    def Get_Motor_Neurons_Joint(self, neuronName):
+        if neuronName in self.neurons:
+            return self.neurons[neuronName].Get_Joint_Name()
+
+    def Get_Value_Of(self, neuronName):
+        if neuronName in self.neurons:
+            return self.neurons[neuronName].Get_Value()
