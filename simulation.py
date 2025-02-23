@@ -33,9 +33,6 @@ class SIMULATION:
         for sensor_name, sensor_instance in self.robot.sensors.items():
             sensor_instance.Save_Values(sensor_name)
 
-        for joint_name, motor_instance in self.robot.joints.items():
-            motor_instance.Save_Values(joint_name)
-
     def __del__(self):
 
         p.disconnect()
