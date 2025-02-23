@@ -31,4 +31,5 @@ class ROBOT:
             instance.Set_Value(self, t)
     
     def Think(self):
+        self.nn.Update()
         self.nn.Print()
