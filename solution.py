@@ -17,6 +17,11 @@ class SOLUTION:
         self.fitness = float(f.read().strip())
         f.close()
 
+    def Mutate(self):
+        randRow = random.randint(0, 2)
+        randCol = random.randint(0, 1)
+        self.weights[randRow][randCol] = random.random() * 2 - 1
+
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
         pyrosim.Send_Cube(name="Box", pos=[6,7,0.5] , size=[1,1,1])
