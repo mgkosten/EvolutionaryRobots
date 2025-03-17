@@ -5,7 +5,9 @@ offset = numpy.pi/2
 
 loop_iterations = 1000
 
-numberOfGenerations = 2
+numberOfGenerations = 10 
+
+populationSize = 2
 
 
 #  = numpy.pi/4
