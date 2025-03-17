@@ -9,8 +9,9 @@ from motor import MOTOR
 
 class SIMULATION:
 
-    def __init__(self, run):
-        if run == "DIRECT":
+    def __init__(self, directOrGUI):
+        self.directOrGUI = directOrGUI
+        if directOrGUI == "DIRECT":
             self.physicsClient = p.connect(p.DIRECT)
         else:
             self.physicsClient = p.connect(p.GUI)
@@ -30,8 +31,8 @@ class SIMULATION:
             self.robot.Sense(i)
             self.robot.Think()
             self.robot.Act(i)
-
-            # time.sleep(1/120) 
+            if self.directOrGUI == "GUI":
+                time.sleep(1/120) 
             # print(i)
         for sensor_name, sensor_instance in self.robot.sensors.items():
             sensor_instance.Save_Values(sensor_name)
