@@ -33,6 +33,9 @@ class SIMULATION:
         for sensor_name, sensor_instance in self.robot.sensors.items():
             sensor_instance.Save_Values(sensor_name)
 
+    def Get_Fitness(self):
+        self.robot.Get_Fitness()
+
     def __del__(self):
 
         p.disconnect()
