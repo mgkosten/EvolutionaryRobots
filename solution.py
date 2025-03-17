@@ -11,7 +11,7 @@ class SOLUTION:
         self.Create_World()
         self.Generate_Body()
         self.Generate_Brain()
-        os.system(f"py simulate.py {directOrGUI}")
+        os.system("start /B py simulate.py " + directOrGUI)
 
         f = open("fitness.txt", "r")
         self.fitness = float(f.read().strip())
