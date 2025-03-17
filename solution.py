@@ -13,6 +13,10 @@ class SOLUTION:
         self.Generate_Brain()
         os.system("py simulate.py")
 
+        f = open("fitness.txt", "r")
+        self.fitness = float(f.read().strip())
+        f.close()
+
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
         pyrosim.Send_Cube(name="Box", pos=[6,7,0.5] , size=[1,1,1])
