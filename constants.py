@@ -7,6 +7,7 @@ loop_iterations = 1000
 
 numberOfGenerations = 2
 
+populationSize = 2
 
 #  = numpy.pi/4
 # freq_BackLeg = 4
