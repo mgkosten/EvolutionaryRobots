@@ -1,6 +1,7 @@
 from solution import SOLUTION
 import constants as c
 import copy
+import time
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
