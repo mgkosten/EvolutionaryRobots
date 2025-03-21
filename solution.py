@@ -4,8 +4,9 @@ import pyrosim.pyrosim as pyrosim
 import random
 
 class SOLUTION:
-    def __init__(self):
+    def __init__(self, nextAvailableID):
         self.weights = numpy.random.rand(3, 2) *2 - 1
+        self.myID = nextAvailableID
 
     def Evaluate(self, directOrGUI):
         self.Create_World()
@@ -21,6 +22,9 @@ class SOLUTION:
         randRow = random.randint(0, 2)
         randCol = random.randint(0, 1)
         self.weights[randRow][randCol] = random.random() * 2 - 1
+
+    def Set_ID(self, nextAvailableID):
+        self.myID = nextAvailableID
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
