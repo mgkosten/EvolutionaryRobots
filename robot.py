@@ -47,5 +47,6 @@ class ROBOT:
         xCoordinateOfLinkZero = positionOfLinkZero[0]
         
         # write to file 
-        with open("fitness" + str(self.solutionID) + ".txt", "w") as file:
+        with open("tmp" + str(self.solutionID) + ".txt", "w") as file:
             file.write(str(xCoordinateOfLinkZero))
+        os.rename("tmp"+str(self.solutionID)+".txt" , "fitness"+str(self.solutionID)+".txt")
