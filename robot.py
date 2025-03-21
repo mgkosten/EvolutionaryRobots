@@ -48,5 +48,5 @@ class ROBOT:
         
         # write to file 
         with open("tmp" + str(self.solutionID) + ".txt", "w") as file:
+            os.rename("tmp"+str(self.solutionID)+".txt" , "fitness"+str(self.solutionID)+".txt")
             file.write(str(xCoordinateOfLinkZero))
-        os.rename("tmp"+str(self.solutionID)+".txt" , "fitness"+str(self.solutionID)+".txt")
