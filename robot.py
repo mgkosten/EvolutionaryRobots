@@ -11,6 +11,7 @@ class ROBOT:
         self.robotId = p.loadURDF("body.urdf")
         self.nn = NEURAL_NETWORK("brain" + str(solutionID) + ".nndf")
         os.system("del brain" + str(solutionID) + ".nndf")
+        self.solutionID = solutionID
         # self.motors = MOTORS()
     
     def Prepare_To_Sense(self):
@@ -46,5 +47,5 @@ class ROBOT:
         xCoordinateOfLinkZero = positionOfLinkZero[0]
         
         # write to file 
-        with open("fitness.txt", "w") as file:
+        with open("fitness" + str(self.solutionID) + ".txt", "w") as file:
             file.write(str(xCoordinateOfLinkZero))
