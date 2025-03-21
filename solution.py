@@ -41,7 +41,7 @@ class SOLUTION:
         pyrosim.End()
 
     def Generate_Brain(self):
-        pyrosim.Start_NeuralNetwork("brain.nndf")
+        pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
         pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Torso")
         pyrosim.Send_Sensor_Neuron(name = 1 , linkName = "BackLeg")
         pyrosim.Send_Sensor_Neuron(name = 2 , linkName = "FrontLeg")
