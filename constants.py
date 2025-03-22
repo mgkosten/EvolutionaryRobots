@@ -8,8 +8,8 @@ loop_iterations = 1000
 numberOfGenerations = 1
 populationSize = 1
 
-numSensorNeurons = 4
-numMotorNeurons = 3
+numSensorNeurons = 5
+numMotorNeurons = 4
 #  = numpy.pi/4
 # freq_BackLeg = 4
 # offset_BackLeg = numpy.pi/2 
