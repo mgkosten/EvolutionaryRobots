@@ -43,6 +43,8 @@ class SOLUTION:
         pyrosim.Send_Cube(name="FrontLowerLeg", pos=[0,0,-0.5] , size=[0.2,0.2,1])
         pyrosim.Send_Joint( name = "BackLeg_BackLowerLeg" , parent= "BackLeg" , child = "BackLowerLeg" , type = "revolute", position = [0,-1,0], jointAxis = "1 0 0")
         pyrosim.Send_Cube(name="BackLowerLeg", pos=[0,0,-0.5] , size=[0.2,0.2,1])
+        pyrosim.Send_Joint( name = "LeftLeg_LeftLowerLeg" , parent= "LeftLeg" , child = "LeftLowerLeg" , type = "revolute", position = [-1,0,0], jointAxis = "1 0 0")
+        pyrosim.Send_Cube(name="LeftLowerLeg", pos=[0,0,-0.5] , size=[0.2,0.2,1])
         pyrosim.End()
 
     def Generate_Brain(self):
@@ -54,6 +56,7 @@ class SOLUTION:
         pyrosim.Send_Sensor_Neuron(name = 4 , linkName = "RightLeg")
         pyrosim.Send_Sensor_Neuron(name = 5 , linkName = "FrontLowerLeg")
         pyrosim.Send_Sensor_Neuron(name = 6 , linkName = "BackLowerLeg")
+        pyrosim.Send_Sensor_Neuron(name = 7 , linkName = "LeftLowerLeg")
         sensor_neurons = list(range(c.numSensorNeurons))
         pyrosim.Send_Motor_Neuron( name = 3 , jointName = "Torso_BackLeg")
         pyrosim.Send_Motor_Neuron( name = 4 , jointName = "Torso_FrontLeg")
@@ -61,6 +64,7 @@ class SOLUTION:
         pyrosim.Send_Motor_Neuron( name = 6 , jointName = "Torso_RightLeg")
         pyrosim.Send_Motor_Neuron( name = 7 , jointName = "FrontLeg_FrontLowerLeg")
         pyrosim.Send_Motor_Neuron( name = 8 , jointName = "BackLeg_BackLowerLeg")
+        pyrosim.Send_Motor_Neuron( name = 9 , jointName = "LeftLeg_LeftLowerLeg")
         motor_neurons = list(range(c.numMotorNeurons))
         # pyrosim.Send_Synapse( sourceNeuronName = 1 , targetNeuronName = 3 , weight = -0.5 )
         # pyrosim.Send_Synapse( sourceNeuronName = 2 , targetNeuronName = 3 , weight = 1.0 )
