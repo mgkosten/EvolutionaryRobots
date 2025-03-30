@@ -11,7 +11,7 @@ populationSize = 10
 numSensorNeurons = 3
 numMotorNeurons = 2
 
-motorJointRange = 0.2
+motorJointRange = 2
 #  = numpy.pi/4
 # freq_BackLeg = 4
 # offset_BackLeg = numpy.pi/2 
