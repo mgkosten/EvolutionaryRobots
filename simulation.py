@@ -30,6 +30,13 @@ class SIMULATION:
         # if self.soccerBallId == -1:
         #     print("Error: SoccerBall not found in the simulation.")
 
+        # Store the initial Y position of the soccer ball
+        if self.soccerBallId != -1:
+            initialBallPosition = p.getBasePositionAndOrientation(self.soccerBallId)[0]
+            self.initialBallYPosition = initialBallPosition[1]
+        else:
+            self.initialBallYPosition = 0.0
+
     def get_body_id_by_name(self, body_name):
         """
         Retrieves the body ID of an object in PyBullet given its name.
@@ -57,10 +64,10 @@ class SIMULATION:
         # self.robot.Get_Fitness()
         if self.soccerBallId != -1:
             ballPositionAndOrientation = p.getBasePositionAndOrientation(self.soccerBallId)
-            ballXPosition = ballPositionAndOrientation[0][0]
+            ballYPosition = ballPositionAndOrientation[0][1]
 
             # Assuming the soccer ball starts at x=1
-            ballTravelDistance = ballXPosition - 1.0
+            ballTravelDistance = ballYPosition - self.initialBallYPosition
 
             # Write the ball's travel distance to the fitness file
             with open("fitness.txt", "w") as file:
