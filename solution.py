@@ -26,7 +26,7 @@ class SOLUTION:
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
-        pyrosim.Send_Cube(name="Box", pos=[6,7,0.5] , size=[1,1,1])
+        pyrosim.Send_Cube(name="SoccerBall", pos=[1, 0, 0.5], size=[0.5, 0.5, 0.5])
         pyrosim.End()
 
     def Generate_Body(self):

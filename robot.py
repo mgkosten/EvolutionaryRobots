@@ -48,10 +48,12 @@ class ROBOT:
         self.nn.Print()
 
     def Get_Fitness(self):
-        basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
-        basePosition = basePositionAndOrientation[0]
-        xPosition = basePosition[0]
+        # basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
+        # basePosition = basePositionAndOrientation[0]
+        # xPosition = basePosition[0]
         
-        # write to file 
-        with open("fitness.txt", "w") as file:
-            file.write(str(xPosition))
+        # # write to file 
+        # with open("fitness.txt", "w") as file:
+        #     file.write(str(xPosition))
+        # Get the robot's final X position (you might still want this)
+        pass
