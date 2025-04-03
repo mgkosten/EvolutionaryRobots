@@ -26,7 +26,7 @@ class SOLUTION:
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
-        pyrosim.Send_Cube(name="SoccerBall", pos=[1, 0, 0.5], size=[0.5, 0.5, 0.5])
+        pyrosim.Send_Cube(name="SoccerBall", pos=[-1, 0, 0.5], size=[0.5, 0.5, 0.5])
         pyrosim.End()
 
     def Generate_Body(self):
@@ -44,10 +44,10 @@ class SOLUTION:
         pyrosim.Send_Cube(name="FrontLowerLeg", pos=[0,0,-0.5] , size=[0.3,0.3,1])
         pyrosim.Send_Joint( name = "BackLeg_BackLowerLeg" , parent= "BackLeg" , child = "BackLowerLeg" , type = "revolute", position = [0,0,-1], jointAxis = "0 1 0")
         pyrosim.Send_Cube(name="BackLowerLeg", pos=[0,0,-0.5] , size=[0.3,0.3,1])
-        pyrosim.Send_Joint( name = "FrontLowerLeg_FrontFoot" , parent= "FrontLowerLeg" , child = "FrontFoot" , type = "revolute", position = [0,0,-1], jointAxis = "0 0 1")
-        pyrosim.Send_Cube(name="FrontFoot", pos=[0,0,-0.1] , size=[1,0.3,0.2])
-        pyrosim.Send_Joint( name = "BackLowerLeg_BackFoot" , parent= "BackLowerLeg" , child = "BackFoot" , type = "revolute", position = [0,0,-1], jointAxis = "0 0 1")
-        pyrosim.Send_Cube(name="BackFoot", pos=[0,0,-0.1] , size=[1,0.3,0.2])
+        pyrosim.Send_Joint( name = "FrontLowerLeg_FrontFoot" , parent= "FrontLowerLeg" , child = "FrontFoot" , type = "revolute", position = [0,0,-1], jointAxis = "0 1 0")
+        pyrosim.Send_Cube(name="FrontFoot", pos=[0,0,-0.1] , size=[1,0.3,0.2], mass=6)
+        pyrosim.Send_Joint( name = "BackLowerLeg_BackFoot" , parent= "BackLowerLeg" , child = "BackFoot" , type = "revolute", position = [0,0,-1], jointAxis = "0 1 0")
+        pyrosim.Send_Cube(name="BackFoot", pos=[0,0,-0.1] , size=[1,0.3,0.2], mass=6)
         pyrosim.End()
 
     def Generate_Brain(self):
