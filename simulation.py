@@ -69,9 +69,17 @@ class SIMULATION:
             # Assuming the soccer ball starts at x=1
             ballTravelDistance = ballYPosition - self.initialBallYPosition
 
+            # Robot Stability
+            robot_position, robot_orientation = p.getBasePositionAndOrientation(self.robot.robotId)
+            robot_z = robot_position[2]
+            stability_factor = 1.0 if robot_z > 2.0 else 0.0 # if robot z is high, reward.
+
+            # combine fitness function
+            fitness = ballTravelDistance * 0.4 + stability_factor * 0.8
+
             # Write the ball's travel distance to the fitness file
             with open("fitness.txt", "w") as file:
-                file.write(str(ballTravelDistance))
+                file.write(str(fitness))
         # else:
         #     # Handle the case where the soccer ball is not found
         #     print("Error: SoccerBall not found in the simulation. Fitness set to 0.")

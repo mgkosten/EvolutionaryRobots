@@ -22,6 +22,7 @@ class ROBOT:
         # self.values.append(pyrosim.Get_Touch_Sensor_Value_For_Link(self.sensor.linkName))
         for sensor, instance in self.sensors.items():
            instance.Get_Value(t)
+        
 
     def Prepare_To_Act(self):
         self.motors = {}
