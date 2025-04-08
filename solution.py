@@ -7,7 +7,9 @@ import constants as c
 class SOLUTION:
     def __init__(self):
         self.weights = numpy.random.rand(c.numSensorNeurons, c.numMotorNeurons) *2 - 1
-        print(self.weights)
+        # print(self.weights)
+        self.fitness = None
+        self.objectives = None
 
     def Evaluate(self, directOrGUI):
         self.Create_World()
@@ -16,7 +18,10 @@ class SOLUTION:
         os.system(f"py simulate.py {directOrGUI}")
 
         f = open("fitness.txt", "r")
-        self.fitness = float(f.read().strip())
+        fitness_data = f.readline().strip().split(',')
+        self.objectives = [float(x) for x in fitness_data]
+        self.fitness = tuple(self.objectives)
+        # self.fitness = float(f.read().strip())
         f.close()
 
     def Mutate(self):
@@ -45,9 +50,9 @@ class SOLUTION:
         pyrosim.Send_Joint( name = "BackLeg_BackLowerLeg" , parent= "BackLeg" , child = "BackLowerLeg" , type = "revolute", position = [0,0,-1], jointAxis = "0 1 0")
         pyrosim.Send_Cube(name="BackLowerLeg", pos=[0,0,-0.5] , size=[0.3,0.3,1], mass=3)
         pyrosim.Send_Joint( name = "FrontLowerLeg_FrontFoot" , parent= "FrontLowerLeg" , child = "FrontFoot" , type = "revolute", position = [0,0,-1], jointAxis = "0 0 1")
-        pyrosim.Send_Cube(name="FrontFoot", pos=[0,0,-0.1] , size=[1,0.3,0.2], mass=5)
+        pyrosim.Send_Cube(name="FrontFoot", pos=[0,0,-0.1] , size=[1,0.3,0.2], mass=6)
         pyrosim.Send_Joint( name = "BackLowerLeg_BackFoot" , parent= "BackLowerLeg" , child = "BackFoot" , type = "revolute", position = [0,0,-1], jointAxis = "0 0 1")
-        pyrosim.Send_Cube(name="BackFoot", pos=[0,0,-0.1] , size=[1,0.3,0.2], mass=4)
+        pyrosim.Send_Cube(name="BackFoot", pos=[0,0,-0.1] , size=[1,0.3,0.2], mass=5)
         pyrosim.End()
 
     def Generate_Brain(self):
