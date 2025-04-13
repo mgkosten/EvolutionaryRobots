@@ -23,9 +23,9 @@ class SOLUTION:
             values = contents.strip().split(",")
             if len(values) == 2:
                 try:
-                    ball_travel = float(values[0])
+                    distance_to_target = float(values[0])
                     stability = float(values[1])
-                    self.objectives = [ball_travel, stability]
+                    self.objectives = [-distance_to_target, stability]
                 except:
                     self.objectives = [0.0, 0.0]  # fallback
             else:

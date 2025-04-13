@@ -64,17 +64,22 @@ class SIMULATION:
             sensor_instance.Save_Values(sensor_name)
 
     def Get_Fitness(self):
-        ballTravelDistance = 0.0
         robotStability = 0.0
+        distanceToTarget = 0.0
 
         # self.robot.Get_Fitness()
         if self.soccerBallId != -1:
-            ballPositionAndOrientation = p.getBasePositionAndOrientation(self.soccerBallId)
-            ballYPosition = ballPositionAndOrientation[0][1]
+            ballPosition = p.getBasePositionAndOrientation(self.soccerBallId)[0]
 
-            # Assuming the soccer ball starts at x=1
-            ballTravelDistance = ballYPosition - self.initialBallYPosition
+            # Get the target position
+            targetId = self.get_body_id_by_name("Target")
+            if targetId != -1:
+                targetPosition = p.getBasePositionAndOrientation(targetId)[0]
+                distanceToTarget = ((ballPosition[0] - targetPosition[0]) ** 2 +
+                                    (ballPosition[1] - targetPosition[1]) ** 2 +
+                                    (ballPosition[2] - targetPosition[2]) ** 2) ** 0.5
 
+    
             # Robot Stability
             if self.torso_z_positions:
                 # Calculate average torso height as a measure of stability
@@ -82,7 +87,7 @@ class SIMULATION:
             
             with open("fitness.txt", "w") as file:
                 # file.write(str(fitness))
-                file.write(f"{ballTravelDistance},{robotStability}")
+                file.write(f"{distanceToTarget},{robotStability}")
 
     def __del__(self):
 
