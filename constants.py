@@ -5,7 +5,7 @@ offset = numpy.pi/2
 
 loop_iterations = 1000
 
-numberOfGenerations = 40
+numberOfGenerations = 100
 populationSize = 10
 
 numSensorNeurons = 7

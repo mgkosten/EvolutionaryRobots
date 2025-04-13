@@ -17,12 +17,25 @@ class SOLUTION:
         self.Generate_Brain()
         os.system(f"py simulate.py {directOrGUI}")
 
-        f = open("fitness.txt", "r")
-        fitness_data = f.readline().strip().split(',')
-        self.objectives = [float(x) for x in fitness_data]
-        self.fitness = tuple(self.objectives)
-        # self.fitness = float(f.read().strip())
-        f.close()
+        # Read from fitness.txt
+        with open("fitness.txt", "r") as file:
+            contents = file.read()
+            values = contents.strip().split(",")
+            if len(values) == 2:
+                try:
+                    ball_travel = float(values[0])
+                    stability = float(values[1])
+                    self.objectives = [ball_travel, stability]
+                except:
+                    self.objectives = [0.0, 0.0]  # fallback
+            else:
+                self.objectives = [0.0, 0.0]
+        # f = open("fitness.txt", "r")
+        # fitness_data = f.readline().strip().split(',')
+        # self.objectives = [float(x) for x in fitness_data]
+        # self.fitness = tuple(self.objectives)
+        # # self.fitness = float(f.read().strip())
+        # f.close()
 
     def Mutate(self):
         randRow = random.randint(0, c.numSensorNeurons - 1)
@@ -32,6 +45,7 @@ class SOLUTION:
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
         pyrosim.Send_Cube(name="SoccerBall", pos=[-1, 0, 0.5], size=[0.5, 0.5, 0.5])
+        pyrosim.Send_Cube(name="Target", pos=[-6, 0, 2], size = [2, 2, 2])
         pyrosim.End()
 
     def Generate_Body(self):
