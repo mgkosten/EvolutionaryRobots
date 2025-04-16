@@ -5,11 +5,11 @@ offset = numpy.pi/2
 
 loop_iterations = 1000
 
-numberOfGenerations = 200
+numberOfGenerations = 100
 populationSize = 10
 
-numSensorNeurons = 9# 8# 7
-numMotorNeurons = 8# 7# 6
+numSensorNeurons = 11#10 #9# 8# 7
+numMotorNeurons = 10#9#8# 7# 6
 
 motorJointRange = 1.5
 #  = numpy.pi/4
