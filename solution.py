@@ -11,7 +11,7 @@ class SOLUTION:
         self.fitness = None
         self.objectives = None
 
-    def Evaluate(self, directOrGUI):
+    def Evaluate(self, directOrGUI, generation=None):
         self.Create_World()
         self.Generate_Body()
         self.Generate_Brain()
@@ -30,6 +30,11 @@ class SOLUTION:
                     self.objectives = [0.0, 0.0]  # fallback
             else:
                 self.objectives = [0.0, 0.0]
+
+        # fitnessTrackign.txt
+        if generation is not None:
+            with open("fitnessTracking.txt", "a") as track_file:
+                track_file.write(f"{generation}, {distance_to_target + stability}\n")
         # f = open("fitness.txt", "r")
         # fitness_data = f.readline().strip().split(',')
         # self.objectives = [float(x) for x in fitness_data]
