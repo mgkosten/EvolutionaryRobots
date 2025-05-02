@@ -8,8 +8,8 @@ loop_iterations = 1000
 numberOfGenerations = 400
 populationSize = 10
 
-numSensorNeurons = 7 #11#10 #9# 8# 7
-numMotorNeurons = 6 #10#9#8# 7# 6
+numSensorNeurons = 11#10 #9# 8# 7
+numMotorNeurons = 10#9#8# 7# 6
 
 motorJointRange = 1.2
 motorForce = 150
