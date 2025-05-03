@@ -49,7 +49,7 @@ class SOLUTION:
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
-        pyrosim.Send_Cube(name="SoccerBall", pos=[-0.5, 0, 0.5], size=[0.5, 0.5, 0.5])
+        pyrosim.Send_Cube(name="SoccerBall", pos=[-1, 0, 0.5], size=[0.5, 0.5, 0.5])
         pyrosim.Send_Cube(name="Target", pos=[-6, 0, 2], size = [2, 2, 2])
         pyrosim.End()
 
